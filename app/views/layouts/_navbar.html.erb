@@ -1,0 +1,25 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <div class="container">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href='/'>Mass<span class='light'>media</span></a>
+
+    <div class="collapse navbar-collapse pull-right" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if author_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'My posts', authors_posts_path, class: "nav-link #{yield(:author)}" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Log out', destroy_author_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Sign in', new_author_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
