@@ -11,7 +11,9 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <div class="container">
+
+  	<div class="container <%= controller_name %> <%= action_name %>" >
+
       <%- if flash.any? %>
         <% flash.each do |name, msg| %>
           <div class="alert alert-info">
@@ -19,19 +21,9 @@
             <%= msg %>
           </div>
         <% end %>
-      <% end %>  
-    </div>
-  	<div class="container <%= controller_name %> <%= action_name %>" >
+      <% end %> 
+      
     	<%= yield %>
     </div>
   </body>
 </html>
-<%- if flash.any? %>
-  <%- flash.keys.each do |flash_key| %>
-    <%- next if flash_key.to_s == 'timedout' %>
-    <div class="alert-message <%= flash_key %>">
-      <a class="close" data-dismiss="alert" href="#"> x</a>
-      <%= flash.discard(flash_key) %>
-    </div>
-  <%- end %>
-<%- end %>
