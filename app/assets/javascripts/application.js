@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.turbolinks
-//= require rails-jquery-tokeninput
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .

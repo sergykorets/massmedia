@@ -135,8 +135,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-jquery-tokeninput (0.2.6)
-      jquery-rails (>= 2)
     railties (5.0.3)
       actionpack (= 5.0.3)
       activesupport (= 5.0.3)
@@ -209,7 +207,6 @@ DEPENDENCIES
   pg
   puma (~> 3.0)
   rails (~> 5.0.2)
-  rails-jquery-tokeninput
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
