@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
 
-  devise_for :authors
+  resources :tags
+  devise_for :authors, :controllers => { registrations: 'registrations' }
   root to: 'blog/posts#index'
 
   namespace :authors do
-  	resources :posts
+  	resources :posts do
+      member do 
+        put 'publish' => 'posts#publish'
+        put 'unpublish' => 'posts#unpublish'
+      end
+    end
+  end
+
+  namespace :blog do
+    resources :posts, only: [:show, :index] do
+      resources :comments, except: [:edit, :update, :show]
+    end
   end
   scope module: 'blog' do
   	get 'posts' => 'posts#index', as: :posts

@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
+//= require rails-jquery-tokeninput
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
@@ -20,7 +22,7 @@ document.addEventListener("turbolinks:load", function() {
 	tinymce.remove();
 	tinymce.init({
 	height: '500',	
-    selector:'textarea',
+    selector:'#textarea',
     plugins: "codesample image media link",
     toolbar: "undo redo | styleselect | bold italic link | codesample image media"
   });
