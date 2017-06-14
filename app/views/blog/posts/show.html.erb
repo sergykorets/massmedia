@@ -1,57 +1,34 @@
 <% provide(:page_title, @post.name) %>
 <% provide(:blog_active, 'active') %>
 
-<% if !current_author.nil? %>
-  <% if @post.author_id == current_author.id %>
-    <div>
-      <%= link_to "Edit", edit_authors_post_path(@post), class: 'btn btn-sm btn-warning' %>
-      <%= link_to "Remove", authors_post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-    </div>
-  <% end %>
+<% if @post.owner?(current_author) %>
+  <div>
+    <%= link_to "Edit", edit_authors_post_path(@post), class: 'btn btn-sm btn-warning' %>
+    <%= link_to "Remove", authors_post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+  </div>
 <% end %>
 
 <div class="row">
-  <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
-    <h1><%= @post.name %></h1>
-    <p><%= @post.display_day_published %></p>
+  <div class="col-md-8 offset-md-2">
+    <% if !@post.image.nil? %>
+      <div class="text-center">
+        <%= image_tag @post.image.url(:medium), class: "post-image" %>
+      </div>
+    <% end %>
+    <hr>
+    <h1 class="text-center"><b><%= @post.name %></b></h1>
+    <hr>
+    <p class="publish"><%= @post.display_day_published %></p>
     <%= @post.content.html_safe %>
+    <hr>
+  </div>
+
+  <div class="col-md-12" id='commment'>
+    <%= render "blog/comments/form" %>
+  </div>
+
+  <div class="col-md-12" id='comments'>
+    <%= render @post.comments.desc %>
   </div>
 </div>
 
-<div class="well">
-        <div class="row">
-            <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
-                <%= form_for([@post, @comment], url: blog_post_comments_path(@post), class: 'form-inline') do |f| %>
-                    <%= f.text_area :content, placeholder: 'Leave your comment here', class: 'form-control' %><br>
-                    <%= f.submit 'Comment', class: 'btn btn-default pull-left' %>
-                <% end %>
-            </div>         
-        </div>
-    </div>
-    <div class="well">
-        <% if !@comments.blank? %>
-            <% @comments.each do |comment| %>
-                <div class="row">
-                    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
-                        <div class="panel panel-white post panel-shadow">
-                            <div class="post-heading">
-                                <div class="pull-left">
-                                    <%= image_tag Author.find_by_id(comment.author_id).avatar.url(:thumb), class: 'round-image-30' %>
-                                </div>
-                                <div class="pull-left meta" style="margin-left: 1%;">
-                                    <div class="title h5">
-                                        <p class="comment"><b><%= Author.find_by_id(comment.author_id).name %></b></p>
-                                    </div>
-                                    <h6 class="text-muted time"><%= time_ago_in_words(comment.created_at) %> ago</h6>
-                                </div> 
-                            </div>
-                            <div class="post-description"> 
-                                <p class="comment"><%= comment.content %></p>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-        <% end %>   
-    </div>
-</div>

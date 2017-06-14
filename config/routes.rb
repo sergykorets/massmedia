@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :authors do
   	resources :posts do
+      resources :comments, only: :index
       member do 
         put 'publish' => 'posts#publish'
         put 'unpublish' => 'posts#unpublish'

@@ -1,13 +1,13 @@
 <div class='col-sm-6 col-lg-4'>
   <div class="card">
     <%= link_to post do %>
-      <div class="card-topper"><%= image_tag post.image.url(:medium) %></div>
+      <div class="card-topper"><%= image_tag post.image.url(:thumb) %></div>
     <% end %>
     <div class="card-block">
       <h4 class="card-title"><%= link_to post.name, post %></h4>
       <p><%= raw post.tags.map { |t| link_to t.name, posts_path(category: t.name) }.join(', ') %></p>
       <h6 class="published-date"><%= post.display_day_published %></h6>
-      <p class="card-text"><%= truncate(post.content, length: 130) %></p>
+      <p class="card-text"><%= truncate_html(post.content, length: 130) %></p>
     </div>
   </div>
 </div>

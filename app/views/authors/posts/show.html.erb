@@ -7,9 +7,18 @@
 </div>
 
 <div class="row">
-  <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
-    <h1><%= @post.name %></h1>
-    <p><%= @post.display_day_published %></p>
+  <div class="col-md-8 offset-md-2">
+    <% if !@post.image.nil? %>
+      <div class="text-center">
+        <%= image_tag @post.image.url(:medium), class: "post-image" %>
+      </div>
+    <% end %>
+    <hr>
+    <h1 class="text-center"><b><%= @post.name %></b></h1>
+    <hr>
+    <p class="publish"><%= @post.display_day_published %></p>
     <%= @post.content.html_safe %>
+    <hr>
   </div>
 </div>
+

@@ -34,11 +34,6 @@
         margin-top: 0.3rem;
         margin-bottom: 0.3rem;
       }
-      .card-text {
-        font-size: 0.9rem;
-        color: black;
-      }
-
     }
   }
 }
@@ -71,24 +66,11 @@
 }
 
 .posts.show {
-  .author-bio {
-    background-color: white;
-    padding: 15px 45px;
-    margin: 30px 0;
-    img {
-      border-radius: 50%;
-    }
-    img, h4 {
-      margin-bottom: 10px;
-    }
-    h4 {
-      font-weight: bold;
-      font-size: 22px;
-    }
-    h6 {
-      font-weight: 300;
-      font-size: 16px
-    }
+  .post-image {
+    border-radius: 3%;
+  }
+  .publish {
+    color: $secondary-text-color;
   }
 }
 

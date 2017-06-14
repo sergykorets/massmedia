@@ -31,8 +31,9 @@ class Post < ApplicationRecord
 
   scope :most_recent, -> { order(published_at: :desc) }
   scope :published, -> { where(published: true) }
+  
 
-  has_attached_file :image, styles: { medium: "350x200#", thumb: "100x100>" }, default_url: "Flag_missing.jpg"
+  has_attached_file :image, styles: { medium: "700x400>", thumb: "350x200>" }, default_url: "Flag_missing.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates_attachment_size :image, :in => 0.megabytes..2.megabytes
 
@@ -46,5 +47,9 @@ class Post < ApplicationRecord
     else
       "Not published"
     end
+  end
+
+  def owner?(user)
+    self.author == user
   end
 end

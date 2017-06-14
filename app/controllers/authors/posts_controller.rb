@@ -1,5 +1,4 @@
-module Authors
-	class PostsController < AuthorController
+class Authors::PostsController < AuthorController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
 
   # GET /posts
@@ -72,15 +71,14 @@ module Authors
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = current_author.posts.friendly.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = current_author.posts.friendly.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:name, :content, :image, :tag_list)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    params.require(:post).permit(:name, :content, :image, :tag_list)
   end
 end

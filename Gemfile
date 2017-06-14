@@ -39,6 +39,8 @@ gem 'annotate'
 gem 'will_paginate', '~> 3.1.0'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'jquery-turbolinks'
+gem 'truncate_html'
+gem "font-awesome-rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
