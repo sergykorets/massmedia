@@ -7,7 +7,9 @@
 
     <div class="collapse navbar-collapse pull-right" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto pull-left">
-        <%= link_to 'Blog', root_path, class: "nav-link #{yield(:blog_active)}" %>
+        <li class="nav-item">
+          <%= link_to 'All categories', blog_tags_path, class: "nav-link #{yield(:categories)}" %>
+        </li>
       </ul>
       <ul class="navbar-nav pull-right">
         <% if author_signed_in? %>

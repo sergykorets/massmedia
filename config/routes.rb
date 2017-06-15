@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :blog do
+    resources :tags, only: :index
     resources :posts, only: [:show, :index] do
       resources :comments, except: [:edit, :update, :show]
     end
