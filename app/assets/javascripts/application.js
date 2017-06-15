@@ -13,11 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.turbolinks
-//= require turbolinks
+//= require selectize
 //= require bootstrap-sprockets
 //= require_tree .
 
-document.addEventListener("turbolinks:load", function() {
+$(document).on('ready page:load', function () {
 	tinymce.remove();
 	tinymce.init({
 	height: '500',	
@@ -26,3 +26,5 @@ document.addEventListener("turbolinks:load", function() {
     toolbar: "undo redo | styleselect | bold italic link | image media"
   });
 })
+
+

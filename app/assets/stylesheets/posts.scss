@@ -53,14 +53,13 @@
       border-right: 0;
       input[type='text'], textarea {
         font-size: 14px;
-        background-color: $light-gray;
       }
-      textarea {
-        height: 100px;
-      }
-      &:last-child {
-        background-color: $light-gray;
-      }
+    }
+    .selectize {
+      width: 100%;
+    }
+    #submit-post {
+      width: 100%;
     }
   }
 }

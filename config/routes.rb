@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :tags
   devise_for :authors, :controllers => { registrations: 'registrations' }
   root to: 'blog/posts#index'
 
   namespace :authors do
+    resources :tags, only: :create
   	resources :posts do
       resources :comments, only: :index
       member do 
