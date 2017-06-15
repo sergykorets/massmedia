@@ -31,32 +31,12 @@ $(document).on('ready page:load', function () {
       });
     }
   });
-});
-// $(document).on('ready page:load', function () {
-//   $("#post_tag_ids").chosen({
-//     create_option_text: 'Create category',
-//     create_option: function(term){
-//       var chosen = this;
-//       $.post('add_term.php', {term: term}, function(data){
-//         chosen.append_option({
-//           value: 'value-' + data.term,
-//           text: data.term
-//         });
-//       });
-//     }
-//   });
-// });
 
-// $(document).on('ready page:load', function () {
-//    $("#post_tag_ids").chosen({
-//       create_option: function(term) {
-//          this.append_option({
-//             value: term,
-//             text: term
-//          });
-//          $('#post_tag_ids').modal({});
-//       },
-//       persistent_create_option: true,
-//       create_option_text: 'Create New Business'
-//    });
-// });
+  $(function() {
+    $("#categories_search input").keyup(function() {
+      $.get($("#categories_search").attr("action"), $("#categories_search").serialize(), null, "script");
+      $(".apple_pagination").hide();
+      return false;
+    });
+  });
+});

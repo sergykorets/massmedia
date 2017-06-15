@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'blog/posts#index'
 
   namespace :authors do
-    resources :tags, only: :create
+    resources :categories, controller: 'tags', only: :create
   	resources :posts do
       resources :comments, only: :index
       member do 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :blog do
-    resources :tags, only: :index
+    resources :categories, controller: 'tags', only: :index
     resources :posts, only: [:show, :index] do
       resources :comments, except: [:edit, :update, :show]
     end

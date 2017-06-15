@@ -5,7 +5,7 @@
     <% end %>
     <div class="card-block">
       <h4 class="card-title"><%= link_to post.name, post %></h4>
-      <p><%= raw post.tags.map { |t| link_to t.name, posts_path(category: t.name) }.join(', ') %></p>
+      <p><%= raw post.tags.map { |t| link_to t.name, root_path(category: t.name) }.join(', ') %></p>
       <h6 class="published-date"><%= post.display_day_published %></h6>
       <p class="card-text"><%= truncate_html(post.content, length: 130) %></p>
     </div>

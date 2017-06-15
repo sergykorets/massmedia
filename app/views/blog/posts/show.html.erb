@@ -5,6 +5,11 @@
   <div>
     <%= link_to "Edit", edit_authors_post_path(@post), class: 'btn btn-sm btn-warning' %>
     <%= link_to "Remove", authors_post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+    <% if @post.published? %>
+      <%= link_to "Unublish", unpublish_authors_post_path(@post), method: :put, class: 'btn btn-sm btn-primary' %>
+    <% else %>
+      <%= link_to "Publish", publish_authors_post_path(@post), method: :put, class: 'btn btn-sm btn-success' %>
+    <% end %>
   </div>
 <% end %>
 
