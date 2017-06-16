@@ -41,7 +41,7 @@ gem 'acts-as-taggable-on', '~> 4.0'
 gem 'truncate_html'
 gem "font-awesome-rails"
 gem "selectize-rails"
-gem 'jquery-migrate-rails'
+gem 'tinymce-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

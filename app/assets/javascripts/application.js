@@ -13,19 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.turbolinks
-//= require jquery-migrate-min
 //= require selectize
 //= require bootstrap-sprockets
 //= require_tree .
-
-$(document).on('ready page:load', function () {
-	tinymce.remove();
-	tinymce.init({
-	height: '500',	
-    selector:'#textarea',
-    plugins: "image media link",
-    toolbar: "undo redo | styleselect | bold italic link | image media"
-  });
-})
+//= require tinymce-jquery
 
 
