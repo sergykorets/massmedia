@@ -24,7 +24,7 @@ class Author < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  acts_as_tagger       
+  acts_as_tagger    
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -33,12 +33,10 @@ class Author < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def update_without_password(params, *options)
-
     if params[:password].blank?
       params.delete(:password)
       params.delete(:password_confirmation) if params[:password_confirmation].blank?
     end
-
     result = update_attributes(params, *options)
     clean_up_passwords
     result

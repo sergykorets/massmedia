@@ -1,0 +1,10 @@
+<% provide(:page_title, "Edit #{@tag.name}") %>
+<% provide(:categories, 'active') %>
+
+<div class="row text-center">
+  <div class="col-md-6 offset-md-3">
+	<h2><b>Edit</b> <%= "'#{@tag.name}'" %></h2>
+  </div>
+</div>
+
+<%= render 'form', tag: @tag, url: authors_tag_path(@tag) %>

@@ -1,7 +1,8 @@
 <tr onclick="location.href='<%= root_path(category: tag.name) %>'">
-	  <td><%= tag.name %></td>
-	  <td><%= tag.description %></td>
-	  <td><%= tag.taggings_count %></td>
-	  <td><%= tag.comments.count %> <i class="fa fa-comments-o" aria-hidden="true"></i></td>
-    <td><%= link_to "home", root_path %></td>
+	<td><%= tag.name %></td>
+	<td><%= tag.description %></td>
+	<td><%= tag.taggings_count %></td>
+	<td><%= tag.comments.count %> <i class="fa fa-comments-o" aria-hidden="true"></i></td>
+	<td><%= link_to 'Edit', edit_authors_tag_path(tag), class: 'btn btn-sm btn-warning' %></td>
+	<td><%= link_to "Remove", authors_tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
 </tr>

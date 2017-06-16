@@ -35,7 +35,6 @@ class Authors::PostsController < AuthorController
   # POST /posts.json
   def create
     @post = current_author.posts.new(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to authors_post_path(@post), notice: 'Post was successfully created.' }

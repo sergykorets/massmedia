@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'blog/posts#index'
 
   namespace :authors do
-    resources :tags, only: [:create, :edit, :update]
+    resources :tags, only: [:new, :create, :edit, :update, :destroy]
   	resources :posts do
       resources :comments, only: :index
       member do 

@@ -1,6 +1,10 @@
 <% provide(:page_title, 'Categories') %>
 <% provide(:categories, 'active') %>
 
+<div>
+  <%= link_to "New category", new_authors_tag_path, class: 'btn btn-sm btn-primary' %>
+</div>
+
 <div class="row">
   <div class="col-md-8 offset-md-2">
     <%= form_tag blog_tags_path, method: 'get', id: "categories_search" do %>
