@@ -68,7 +68,7 @@
         <h4 class="modal-title" id="mySmallModalLabel">Add category</h4>
       </div>
       <div class="modal-body">
-        <%= form_for Tag.new, url: authors_categories_path do |f| %>
+        <%= form_for Tag.new, url: authors_tags_path do |f| %>
           <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %>

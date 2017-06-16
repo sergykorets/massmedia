@@ -1,30 +1,30 @@
-<% provide(:page_title, @post.name) %>
+<% provide(:page_title, @commentable.name) %>
 <% provide(:blog_active, 'active') %>
 
-<% if @post.owner?(current_author) %>
+<% if @commentable.owner?(current_author) %>
   <div>
-    <%= link_to "Edit", edit_authors_post_path(@post), class: 'btn btn-sm btn-warning' %>
-    <%= link_to "Remove", authors_post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-    <% if @post.published? %>
-      <%= link_to "Unublish", unpublish_authors_post_path(@post), method: :put, class: 'btn btn-sm btn-primary' %>
+    <%= link_to "Edit", edit_authors_post_path(@commentable), class: 'btn btn-sm btn-warning' %>
+    <%= link_to "Remove", authors_post_path(@commentable), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+    <% if @commentable.published? %>
+      <%= link_to "Unublish", unpublish_authors_post_path(@commentable), method: :put, class: 'btn btn-sm btn-primary' %>
     <% else %>
-      <%= link_to "Publish", publish_authors_post_path(@post), method: :put, class: 'btn btn-sm btn-success' %>
+      <%= link_to "Publish", publish_authors_post_path(@commentable), method: :put, class: 'btn btn-sm btn-success' %>
     <% end %>
   </div>
 <% end %>
 
 <div class="row">
   <div class="col-md-8 offset-md-2">
-    <% if !@post.image.nil? %>
+    <% if !@commentable.image.nil? %>
       <div class="text-center">
-        <%= image_tag @post.image.url(:medium), class: "post-image" %>
+        <%= image_tag @commentable.image.url(:medium), class: "post-image" %>
       </div>
     <% end %>
     <hr>
-    <h1 class="text-center"><b><%= @post.name %></b></h1>
+    <h1 class="text-center"><b><%= @commentable.name %></b></h1>
     <hr>
-    <p class="publish"><%= @post.display_day_published %></p>
-    <%= @post.content.html_safe %>
+    <p class="publish"><%= @commentable.display_day_published %></p>
+    <%= @commentable.content.html_safe %>
     <hr>
   </div>
 
@@ -33,7 +33,7 @@
   </div>
 
   <div class="col-md-12" id='comments'>
-    <%= render @post.comments.desc %>
+    <%= render @commentable.comments.desc %>
   </div>
 </div>
 

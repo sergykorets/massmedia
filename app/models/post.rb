@@ -24,7 +24,7 @@ class Post < ApplicationRecord
   friendly_id :name, use: :slugged
 
   belongs_to :author
-  has_many :comments, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   validates_presence_of :name
   validates_presence_of :content

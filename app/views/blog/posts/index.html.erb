@@ -1,9 +1,25 @@
 <% provide(:page_title, 'All posts') %>
 <% provide(:blog_active, 'active') %>
 
-<div class="row">
+<div class="row">	
   <%= render @posts %>
 </div>
+
 <div class="apple_pagination">
   <%= will_paginate @posts, container: false %>
 </div>
+
+<% if !@category.nil? %>
+  <hr>
+  <div class="row">
+    <div class='col-lg-12'>
+      <div id='commment'>
+        <%= render "blog/comments/form" %>
+      </div>
+
+      <div id='comments'>
+        <%= render @commentable.comments.desc %>
+      </div>
+    </div>
+  </div>
+<% end %>

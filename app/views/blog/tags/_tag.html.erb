@@ -1,6 +1,7 @@
-<tr>
-  <td><%= link_to tag.name, root_path(category: tag.name) %></td>
-  <td></td>
-  <td><%= tag.description %></td>
-  <td><%= tag.taggings_count %></td>
+<tr onclick="location.href='<%= root_path(category: tag.name) %>'">
+	  <td><%= tag.name %></td>
+	  <td><%= tag.description %></td>
+	  <td><%= tag.taggings_count %></td>
+	  <td><%= tag.comments.count %> <i class="fa fa-comments-o" aria-hidden="true"></i></td>
+    <td><%= link_to "home", root_path %></td>
 </tr>
