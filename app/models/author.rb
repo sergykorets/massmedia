@@ -31,6 +31,13 @@ class Author < ApplicationRecord
 
   has_attached_file :avatar, styles: { medium: "200x200#", thumb: "100x100#" }, default_url: "missing.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  validates_format_of :name, with: /^\w+\s\w+$/, multiline: true, allow_blank: true
+
+  before_save :capitalize_name
+
+  def capitalize_name
+    self.name = self.name.titleize
+  end
 
   def update_without_password(params, *options)
     if params[:password].blank?
