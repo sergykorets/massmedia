@@ -3,7 +3,7 @@
   <td><%= raw post.tags.map { |t| link_to t.name, root_path(category: t.name) }.join(', ') %></td>
   <td></td>
   <% if post.published? %>
-  	<td><%= link_to "Unublish", unpublish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-primary' %></td>
+  	<td><%= link_to "Unpublish", unpublish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-primary' %></td>
   <% else %>
   	<td><%= link_to "Publish", publish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-success' %></td>
   <% end %>
