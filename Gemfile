@@ -49,6 +49,14 @@ gem 'tinymce-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'faker'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 
 group :development do

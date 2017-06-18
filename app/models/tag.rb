@@ -4,6 +4,7 @@ class Tag < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
 
   validates_uniqueness_of :name
+  validates_presence_of :name
 
   def self.search(search)
     if search

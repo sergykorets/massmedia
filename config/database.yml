@@ -10,3 +10,9 @@ development:
   username: postgres
   password: 3441
 
+test:
+  <<: *default
+  database: mass_media_test
+  username: postgres
+  password: 3441  
+

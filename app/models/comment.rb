@@ -11,5 +11,4 @@ class Comment < ApplicationRecord
   def owner?(user)
   	self.author == user
   end
-
 end
